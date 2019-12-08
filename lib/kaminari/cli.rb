@@ -2,9 +2,25 @@
 
 module Kaminari
   class Cli
-    def self.run(argv)
-      options = parse_options(argv)
-      new(options).run
+    class << self
+      def run(argv)
+        options = parse_options(argv)
+        new(options).run
+      end
+
+      private
+
+      def parse_options(argv)
+        require 'optparse'
+
+        options = {}
+        parser = OptionParser.new
+        parser.on('-f FILE', '--file FILE') { |v| v }
+        parser.on('--xpath XPATH') { |v| v }
+        parser.parse!(argv, into: options)
+
+        options
+      end
     end
 
     def initialize(options)
@@ -23,20 +39,6 @@ module Kaminari
       nodes.each do |node|
         puts node.to_s
       end
-    end
-
-    private
-
-    def self.parse_options(argv)
-      require 'optparse'
-
-      options = {}
-      parser = OptionParser.new
-      parser.on('-f FILE', '--file FILE') { |v| v }
-      parser.on('--xpath XPATH') { |v| v }
-      parser.parse!(argv, into: options)
-
-      options
     end
   end
 end

@@ -8,7 +8,21 @@ Kamikiri is a command-line XML/HTML processor to extract parts of a given XML/HT
 
 ## Usage
 
+This cli requires two options, `--file` and `--xpath`:
+
     kamikiri --file /path/to/xml/file.xml --xpath '//foo/bar'
+
+Here is an example to extract CD informatoin whose price is higher than $10 and released in 1980s from [the catalog](https://www.w3schools.com/xml/cd_catalog.xml):
+
+    $ kamikiri --file https://www.w3schools.com/xml/cd_catalog.xml --xpath '//CD[PRICE > 10.0]'
+    <CD>
+    <TITLE>Empire Burlesque</TITLE>
+    <ARTIST>Bob Dylan</ARTIST>
+    <COUNTRY>USA</COUNTRY>
+    <COMPANY>Columbia</COMPANY>
+    <PRICE>10.90</PRICE>
+    <YEAR>1985</YEAR>
+    </CD>
 
 ## Development
 
