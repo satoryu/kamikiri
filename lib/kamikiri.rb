@@ -1,6 +1,4 @@
-require "kamikiri/version"
+# frozen_string_literal: true
 
-module Kamikiri
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require "kamikiri/version"
+require "kaminari/cli"
