@@ -14,8 +14,9 @@ module Kaminari
 
     def run
       require 'nokogiri'
+      require 'open-uri'
 
-      content = File.read(@file)
+      content = open(@file).read
       doc = Nokogiri.XML(content)
       nodes = doc.xpath(@xpath)
 
