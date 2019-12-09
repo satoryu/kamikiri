@@ -2,4 +2,4 @@
 
 require "kamikiri"
 
-Kaminari::Cli.run(ARGV)
+Kamikiri::Cli.run(ARGV)

@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-module Kaminari
+require 'kamikiri/formatters'
+
+module Kamikiri
   class Cli
     class << self
       def run(argv)
