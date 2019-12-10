@@ -4,7 +4,7 @@ Kamikiri is a command-line XML/HTML processor to extract parts of a given XML/HT
 
 ## Installation
 
-    $ gem install kamikiri
+    gem install kamikiri
 
 ## Usage
 
@@ -14,7 +14,7 @@ This cli requires two options, `--file` and `--xpath`:
 
 Here is an example to extract CD informatoin whose price is higher than $10 and released in 1980s from [the catalog](https://www.w3schools.com/xml/cd_catalog.xml):
 
-    $ kamikiri --file https://www.w3schools.com/xml/cd_catalog.xml --xpath '//CD[PRICE > 10.0]'
+    $ kamikiri --file https://www.w3schools.com/xml/cd_catalog.xml --xpath '//CD[PRICE > 10.0][YEAR > 1990]'
     <CD>
     <TITLE>Empire Burlesque</TITLE>
     <ARTIST>Bob Dylan</ARTIST>

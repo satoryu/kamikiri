@@ -19,6 +19,7 @@ module Kamikiri
         parser = OptionParser.new
         parser.on('-f FILE', '--file FILE') { |v| v }
         parser.on('--xpath XPATH') { |v| v }
+        parser.on('--formatter FORMATTER') { |v| v }
         parser.parse!(argv, into: options)
 
         options
@@ -28,6 +29,7 @@ module Kamikiri
     def initialize(options)
       @file = options[:file]
       @xpath = options[:xpath]
+      @formatter_name = options[:formatter] || :default
     end
 
     def run
@@ -38,9 +40,15 @@ module Kamikiri
       doc = Nokogiri.XML(content)
       nodes = doc.xpath(@xpath)
 
-      nodes.each do |node|
-        puts node.to_s
-      end
+      formatter = load_formatter
+      formatter.format(nodes)
+    end
+
+    private
+
+    def load_formatter
+      formatter_class = Formatters.load(@formatter_name)
+      formatter_class.new($stdout)
     end
   end
 end
