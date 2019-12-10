@@ -29,7 +29,7 @@ module Kamikiri
     def initialize(options)
       @file = options[:file]
       @xpath = options[:xpath]
-      @formatter_name = options[:formatter] || :default
+      @formatter_name = options.fetch(:formatter, :default)
     end
 
     def run
