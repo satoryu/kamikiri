@@ -12,17 +12,50 @@ This cli requires two options, `--file` and `--xpath`:
 
     kamikiri --file /path/to/xml/file.xml --xpath '//foo/bar'
 
-Here is an example to extract CD informatoin whose price is higher than $10 and released in 1980s from [the catalog](https://www.w3schools.com/xml/cd_catalog.xml):
+Here is an example to extract CD informatoin whose price is higher than $10 and released in 1990s from [the catalog](https://www.w3schools.com/xml/cd_catalog.xml):
 
-    $ kamikiri --file https://www.w3schools.com/xml/cd_catalog.xml --xpath '//CD[PRICE > 10.0][YEAR > 1990]'
+    $ kamikiri --file https://www.w3schools.com/xml/cd_catalog.xml --xpath '//CD[PRICE > 10.0][YEAR >= 1990]'
     <CD>
-    <TITLE>Empire Burlesque</TITLE>
-    <ARTIST>Bob Dylan</ARTIST>
-    <COUNTRY>USA</COUNTRY>
-    <COMPANY>Columbia</COMPANY>
-    <PRICE>10.90</PRICE>
-    <YEAR>1985</YEAR>
+    <TITLE>Still got the blues</TITLE>
+    <ARTIST>Gary Moore</ARTIST>
+    <COUNTRY>UK</COUNTRY>
+    <COMPANY>Virgin records</COMPANY>
+    <PRICE>10.20</PRICE>
+    <YEAR>1990</YEAR>
     </CD>
+    <CD>
+    <TITLE>One night only</TITLE>
+    <ARTIST>Bee Gees</ARTIST>
+    <COUNTRY>UK</COUNTRY>
+    <COMPANY>Polydor</COMPANY>
+    <PRICE>10.90</PRICE>
+    <YEAR>1998</YEAR>
+    </CD>
+    <CD>
+    <TITLE>Romanza</TITLE>
+    <ARTIST>Andrea Bocelli</ARTIST>
+    <COUNTRY>EU</COUNTRY>
+    <COMPANY>Polydor</COMPANY>
+    <PRICE>10.80</PRICE>
+    <YEAR>1996</YEAR>
+    </CD>
+    <CD>
+    <TITLE>Black angel</TITLE>
+    <ARTIST>Savage Rose</ARTIST>
+    <COUNTRY>EU</COUNTRY>
+    <COMPANY>Mega</COMPANY>
+    <PRICE>10.90</PRICE>
+    <YEAR>1995</YEAR>
+    </CD>
+    <CD>
+    <TITLE>1999 Grammy Nominees</TITLE>
+    <ARTIST>Many</ARTIST>
+    <COUNTRY>USA</COUNTRY>
+    <COMPANY>Grammy</COMPANY>
+    <PRICE>10.20</PRICE>
+    <YEAR>1999</YEAR>
+    </CD>
+
 
 ## Development
 
